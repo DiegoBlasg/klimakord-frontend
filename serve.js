@@ -7,6 +7,9 @@ const port = 3000
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 })
+app.get('/nasa', (req, res) => {
+  res.sendFile(path.join(__dirname + '/nasa.html'));
+})
 
 // rutas de las librerias
 app.get('/leaflet/js', (req, res) => {

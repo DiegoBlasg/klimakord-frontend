@@ -20,12 +20,15 @@
 
 <body>
     <div id='map'></div>
-    <div style="position: absolute; height: 100vh; top:0; z-index: 1000;">
-        <button onclick="masmetros()" class="btn btn-primary">Mas metros</button>
-        <button onclick="menosmetros()" class="btn btn-primary">Menos metros</button>
+    <div style="position: absolute; width: 100%; top:0; z-index: 1000;">
+        <a href="/nasa" class="position-absolute end-0 btn btn-light opacity-75 m-5">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" style="width: 70px;">
+            Mas información</a>
+    </div>
     </div>
     <script>
-        let metros = 0;
+
+        let metros = 130;
         let map = null;
         function masmetros() {
             metros += 100
@@ -41,7 +44,7 @@
             if (map) map.remove()
             map = null
             map = L.map('map').setView([40, -2], 6);
-            L.tileLayer(`http://192.168.30.176:9876/tile/{x}/{y}/{z}/${metros}/key=/cb-blas-key`, {
+            L.tileLayer(`http://192.168.30.176:9876/api/tile/{x}/{y}/{z}/${metros}/key=/cb-blas-key`, {
                 maxZoom: 19,
             }).addTo(map)
             L.control.scale().addTo(map);
